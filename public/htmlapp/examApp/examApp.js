@@ -3,18 +3,21 @@
 var app = angular.module('kidsitApp', ['ui.bootstrap','kidsitAnimate','timer','toastr','ngRoute',
 										'cgBusy','pageslide-directive','improvementCharts']);
 app.config(['$interpolateProvider', '$routeProvider' , function($interpolateProvider,$routeProvider) {
-
+	var basetempurl = "http://kidsitl4.dev:8000";
 	$interpolateProvider.startSymbol('[[');
 	$interpolateProvider.endSymbol(']]');
-	$basetemplateurl ="http://kidsitl4.dev:8000/"
+
         $routeProvider.when('/plus',
             {
-                templateUrl: $basetemplateurl+ 'assets/atpls/examplus.html'
+                templateUrl: basetempurl+'/assets/atpls/examplus.html'
             })
 			.when('/times',{
-				templateUrl:$basetemplateurl+'assets/atpls/examtimes.html'
+				templateUrl: basetempurl+'/assets/atpls/examtimes.html'
 			})
-            .otherwise({redirectTo: '/plus'});
+			.when('/summmultiply',{
+				templateUrl: basetempurl+'/assets/atpls/examsummultiply.html'
+			})
+			.otherwise({redirectTo: '/plus'});
 }]);
 app.value('answeringFactory', {
 	isAnswering : false,
@@ -165,6 +168,10 @@ var kidsitAppCtrl = app.controller('kidsitAppCtrl', ['$scope', '$rootScope', '$h
 				break;
 			case 'times':
 				$location.url('/times');
+				break;
+			case 'summultiply':
+				$location.url('/summmultiply');
+				break;
 		}
 	};
 	$scope.metadata.examTimerRunning = 0;
@@ -310,7 +317,11 @@ app.filter('examTixing',function(){
 				return "乘法";
 			case 'division':
 				return "除法";
+			case 'summultiply':
+				return "乘加";
+			
 			}
+
 		};
 	});
 app.filter('examWeishu',function(){
@@ -341,7 +352,16 @@ app.filter('examDifficulty',function(){
 			}
 	};
 });
-
+app.filter('operatorfilter',function() {
+	return function (operatortoken) {
+		switch(operatortoken){
+			case 0:
+				return "+";
+			case 1:
+				return "X";
+		}
+	};
+});
 app.directive("toggleAnswerViewAndAnimcate",['$animate',function($animate){
 	var linker = function(scope, element, attrs) {
 			var clicktoggle = 0;
