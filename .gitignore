@@ -1,11 +1,11 @@
 # Laravel
 /bootstrap/compiled.php
-
+app/storage/uploaded/
+public/node_modules/
 # Configuration
 /app/config/local
 /app/config/staging
 /app/config/production
-
 
 # Composer
 composer.phar
@@ -19,3 +19,5 @@ vagrant
 
 # Packages
 _ide_helpers.php
+# project files
+kisdsitl4git.*
