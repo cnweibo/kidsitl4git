@@ -141,6 +141,8 @@ return array(
     'Mathsum2' => $baseDir . '/app/models/math/Mathsum2.php',
     'Mathsum4' => $baseDir . '/app/models/Mathsum4.php',
     'Mathsum4Controller' => $baseDir . '/app/controllers/maths/Mathsum4Controller.php',
+    'Mathsummultiply' => $baseDir . '/app/models/math/Mathsummultiply.php',
+    'MathsummultiplyController' => $baseDir . '/app/controllers/maths/MathsummultiplyController.php',
     'Mathsyntheticalexam' => $baseDir . '/app/models/math/Mathsyntheticalexam.php',
     'Mathsyntheticalexamopdata' => $baseDir . '/app/models/math/Mathsyntheticalexamopdata.php',
     'MathsyntheticalexamopdatasController' => $baseDir . '/app/controllers/maths/MathsyntheticalexamopdatasController.php',

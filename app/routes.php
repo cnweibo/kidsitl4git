@@ -38,6 +38,9 @@ Route::group(array('prefix' => 'math'), function(){
     Route::get('mathmulti2_12populate','Mathmultiply2Controller@index2_12');
     Route::get('mathmulti2_21populate','Mathmultiply2Controller@index2_21');
     Route::get('mathmulti2_22populate','Mathmultiply2Controller@index2_22');
+// 加乘    
+    Route::get('mathsummulti1_populate','MathsummultiplyController@index');
+
 
     Route::resource('skillcat','MathskillcatsController');
     Route::resource('skill','MathskillsController');
