@@ -1,6 +1,6 @@
 # Laravel
 /bootstrap/compiled.php
-app/storage/uploaded/
+app/storage/
 public/node_modules/
 # Configuration
 /app/config/local

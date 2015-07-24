@@ -41,6 +41,8 @@ class MathexamsController extends \BaseController {
 			case 'mathsum3exercises':
 				$exerciseModel = 'Mathsum3';
 				break;	
+			case 'mathmultiply1exercises':
+					$exerciseModel = 'Mathmultiply1';
 			case 'mathmultiply2exercises':
 				$exerciseModel = 'Mathmultiply2';
 			default:
@@ -122,11 +124,18 @@ class MathexamsController extends \BaseController {
 						array_push($examdata,$exercises[$i]['id']);
 					}	
 					break;
-			
-				default:
+				case '1':
+					$mathexam-> exercisetab = "mathmultiply1exercises";
+					$exercises = Mathmultiply1::where('difficulty','=', 1)->orderByRaw("rand() limit 0,{$quantity}")->get()->toArray();
+					//保存卷子题目字典信息到试卷数据库mathexams
+					for ($i=0;$i<$quantity;$i++){
+						array_push($examdata,$exercises[$i]['id']);
+					}	
 					break;
+					default:
+						break;
+				}
 			}
-		}
 		$exam_exercisesrows= json_encode($examdata);
 		$mathexam-> exerciseids = $exam_exercisesrows;
 		$mathexam-> difficultydata = $difficulty;

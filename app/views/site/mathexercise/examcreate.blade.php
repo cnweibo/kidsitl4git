@@ -289,7 +289,28 @@
 
 @section('scripts')
 	
+	<script type="text/javascript" src="{{asset('htmlapp/libs/jquery/dist/jquery.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('htmlapp/libs/angular/angular.js')}}"></script>
+	<script type="text/javascript" src="{{asset('htmlapp/libs/angular-route/angular-route.js')}}"></script>
+	<script type="text/javascript" src="{{asset('htmlapp/libs/angular-timer.js')}}"></script>
+	<script type="text/javascript" src="{{asset('htmlapp/libs/angular-animate/angular-animate.js')}}"></script>
+	<script type="text/javascript" src="{{asset('htmlapp/libs/angular-toastr/dist/angular-toastr.js')}}"></script>	
+	<script type="text/javascript" src="{{asset('htmlapp/syscommon/kidsitanimatelib.js')}}"></script>
+	<script type="text/javascript" src="{{asset('htmlapp/libs/angular-bootstrap/ui-bootstrap-tpls.js')}}"></script>
+	<script type="text/javascript" src="{{asset('htmlapp/libs/TweenMax.min.js')}}"></script>
 
-	<script type="text/javascript" src="{{asset('dist/appMath.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('htmlapp/libs/angular-busy/dist/angular-busy.js') }}"></script>
+	<script type="text/javascript" src="{{asset('htmlapp/libs/ng-pageslide/dist/angular-pageslide-directive.js')}}"></script>
+	
+	<script type="text/javascript" src="{{asset('htmlapp/examApp/improvementCharts.ctrl.js')}}"></script>	
+	<script type="text/javascript" src="{{asset('htmlapp/libs/highcharts/index.js')}}"></script>
+
+	<script type="text/javascript" src="{{asset('htmlapp/libs/highcharts-ng/dist/highcharts-ng.js')}}"></script>
+
+
+
+	<script type="text/javascript" src="{{asset('htmlapp/examApp/examApp.js')}}"></script>
+
+
 
 @stop

@@ -6,13 +6,13 @@ app.config(['$interpolateProvider', '$routeProvider' , function($interpolateProv
 
 	$interpolateProvider.startSymbol('[[');
 	$interpolateProvider.endSymbol(']]');
-
+	$basetemplateurl ="http://kidsitl4.dev:8000/"
         $routeProvider.when('/plus',
             {
-                templateUrl:'http://kidsit.cn/assets/atpls/examplus.html'
+                templateUrl: $basetemplateurl+ 'assets/atpls/examplus.html'
             })
 			.when('/times',{
-				templateUrl:'http://kidsit.cn/assets/atpls/examtimes.html'
+				templateUrl:$basetemplateurl+'assets/atpls/examtimes.html'
 			})
             .otherwise({redirectTo: '/plus'});
 }]);
