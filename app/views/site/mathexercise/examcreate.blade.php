@@ -99,17 +99,34 @@
 		
 		<span ng-if="category == 'plus'" style="display:inline-block;width:20px;font-size: 0.8em">+</span>  
 		<span ng-if="category == 'times'" style="display:inline-block;width:20px;font-size: 0.8em">x</span>  
+		<span ng-if="category == 'summultiply'" style="display:inline-block;width:20px;font-size: 0.8em">[[row.operator1|operatorfilter]]</span>  
 
 		<span ng-if="isVisualColumn(row,2)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,2)]">[[row.operand2]]</span>  
 		<span ng-if="!isVisualColumn(row,2) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,2)]">([[row.operand2]])</span> 
 		<span ng-form="inputform2"><input ng-blur="updateScore()" ng-disabled="!canInputAnswer" ng-if="!isVisualColumn(row,2) && !showAnswer " class="answerInput" type="text" data-ng-model="row.myanswerdata"></span>
-		
+		<span ng-if="category == 'summultiply'" style="display:inline-block;width:20px;font-size: 0.8em">[[row.operator2|operatorfilter]]
+
+			<span ng-if="isVisualColumn(row,3)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,3)]">[[row.operand3]]</span>  
+			<span ng-if="!isVisualColumn(row,3) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,3)]">([[row.operand3]])</span> 
+			<span ng-form="inputform3"><input ng-blur="updateScore()" ng-disabled="!canInputAnswer" ng-if="!isVisualColumn(row,3) && !showAnswer " class="answerInput" type="text" data-ng-model="row.myanswerdata"></span>
+
+		</span>
 		= 
 
+<span ng-if="category != 'summultiply'" style="display:inline-block;width:90px;font-size: 0.8em">
 		<span ng-if="isVisualColumn(row,3)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,3)]"><span  ng-if="category == 'plus'">[[row.sumdata]]</span><span  ng-if="category == 'times'">[[row.multiplydata]]</span></span>  
 		<span ng-if="!isVisualColumn(row,3) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,3)]">(<span  ng-if="category == 'plus'">[[row.sumdata]]</span><span  ng-if="category == 'times'">[[row.multiplydata]]</span>)</span> 
 		<span ng-form="inputform3"><input ng-blur="updateScore()" ng-disabled="!canInputAnswer" ng-if="!isVisualColumn(row,3) && !showAnswer "  class="answerInput" type="text" data-ng-model="row.myanswerdata"></span>
 		<span check-result category="category" my-row="row" has-input="inputform1.$dirty || inputform2.$dirty || inputform3.$dirty" answer='row.myanswerdata' check-answer-realtime="checkAnswerRealtime"></span>
+</span>
+
+
+<span ng-if="category == 'summultiply'" style="display:inline-block;width:90px;font-size: 0.8em">
+		<span ng-if="isVisualColumn(row,4)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,4)]"><span  ng-if="category == 'plus'">[[row.result]]</span><span  ng-if="category == 'summultiply'">[[row.result]]</span></span>  
+		<span ng-if="!isVisualColumn(row,4) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,4)]">(<span  ng-if="category == 'summultiply'">[[row.result]]</span><span  ng-if="category == 'summultiply'">[[row.result]]</span>)</span> 
+		<span ng-form="inputform4"><input ng-blur="updateScore()" ng-disabled="!canInputAnswer" ng-if="!isVisualColumn(row,4) && !showAnswer "  class="answerInput" type="text" data-ng-model="row.myanswerdata"></span>
+		<span check-result category="category" my-row="row" has-input="inputform1.$dirty || inputform2.$dirty || inputform3.$dirty" answer='row.myanswerdata' check-answer-realtime="checkAnswerRealtime"></span>
+</span>
 	</span>
 	</script>
 	<script type="text/ng-template" id="checkresult.html">
@@ -177,6 +194,9 @@
 								</label>
 								<label class="radio-inline radio-inline-toolbar-small">
 								  <input type="radio" name="mathCategory" data-ng-model="mathexam.mathCategory" id="inlineRadio4" value="division"> 除
+								</label>
+								<label class="radio-inline radio-inline-toolbar-small">
+								  <input type="radio" name="mathCategory" data-ng-model="mathexam.mathCategory" id="inlineRadio5" value="summultiply"> 乘加
 								</label>
 							</div>
 							<div>

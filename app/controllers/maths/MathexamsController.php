@@ -136,6 +136,20 @@ class MathexamsController extends \BaseController {
 						break;
 				}
 			}
+			else if ($category == 'summultiply'){
+			switch ($digitnumbers) {
+				case '1':
+					$mathexam-> exercisetab = "mathmultiplysum1exercises";
+					$exercises = Mathsummultiply::where('difficulty','=', 1)->orderByRaw("rand() limit 0,{$quantity}")->get()->toArray();
+					//保存卷子题目字典信息到试卷数据库mathexams
+					for ($i=0;$i<$quantity;$i++){
+						array_push($examdata,$exercises[$i]['id']);
+					}	
+					break;
+					default:
+						break;
+				}
+			}
 		$exam_exercisesrows= json_encode($examdata);
 		$mathexam-> exerciseids = $exam_exercisesrows;
 		$mathexam-> difficultydata = $difficulty;
@@ -150,6 +164,9 @@ class MathexamsController extends \BaseController {
 				break;
 			case 'mathmultiply2exercises':
 				$exam["examType"] = "times";
+				break;
+			case 'mathmultiplysum1exercises':
+				$exam["examType"] = "summultiply";
 				break;
 			default:
 				# code...
