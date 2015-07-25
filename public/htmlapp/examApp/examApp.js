@@ -358,7 +358,7 @@ app.filter('operatorfilter',function() {
 			case 0:
 				return "+";
 			case 1:
-				return "X";
+				return "x";
 		}
 	};
 });

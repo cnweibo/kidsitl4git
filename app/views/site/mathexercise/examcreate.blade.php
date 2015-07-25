@@ -104,7 +104,7 @@
 		<span ng-if="isVisualColumn(row,2)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,2)]">[[row.operand2]]</span>  
 		<span ng-if="!isVisualColumn(row,2) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,2)]">([[row.operand2]])</span> 
 		<span ng-form="inputform2"><input ng-blur="updateScore()" ng-disabled="!canInputAnswer" ng-if="!isVisualColumn(row,2) && !showAnswer " class="answerInput" type="text" data-ng-model="row.myanswerdata"></span>
-		<span ng-if="category == 'summultiply'" style="display:inline-block;width:20px;font-size: 0.8em">[[row.operator2|operatorfilter]]
+		<span ng-if="category == 'summultiply'" style="display:inline-block;width:80px;font-size: 0.8em">[[row.operator2|operatorfilter]]
 
 			<span ng-if="isVisualColumn(row,3)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,3)]">[[row.operand3]]</span>  
 			<span ng-if="!isVisualColumn(row,3) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,3)]">([[row.operand3]])</span> 
