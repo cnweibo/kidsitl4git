@@ -80,6 +80,7 @@ return array(
     'CreateMathsyntheticalexamopdatasTable' => $baseDir . '/app/database/migrations/2015_01_12_000833_create_mathsyntheticalexamopdatas_table.php',
     'CreateMathsyntheticalexamrowsTable' => $baseDir . '/app/database/migrations/2015_01_11_235838_create_mathsyntheticalexamrows_table.php',
     'CreateMathsyntheticalexams' => $baseDir . '/app/database/migrations/2015_01_11_235246_create_mathsyntheticalexams.php',
+    'CreateMulitplysumexercises' => $baseDir . '/app/database/migrations/2015_07_25_101846_create_mulitplysumexercises.php',
     'CreateNewsentencecorespondingword' => $baseDir . '/app/database/migrations/2014_08_08_231550_create_newsentencecorespondingword.php',
     'CreatePostsTable' => $baseDir . '/app/database/migrations/2013_02_05_043505_create_posts_table.php',
     'CreatePrevguizeoperated' => $baseDir . '/app/database/migrations/2014_07_12_190716_create_prevguizeoperated.php',
