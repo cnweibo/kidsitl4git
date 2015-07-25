@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="{{asset('htmlapp/assets/custom.css')}}">
 @stop
 @section('bodyhead')
-<body style="position:relative" ng-app="kidsitApp" ng-controller="kidsitAppCtrl" ng-strict-di>
+<body style="position:relative" ng-app="kidsitApp" ng-controller="kidsitAppCtrl">
 	<div cg-busy="currentPromise" style="position:absolute;top:50%;left:50%" ></div>
 @overwrite
 @section('loginctrlform')
@@ -125,7 +125,7 @@
 		<span ng-if="isVisualColumn(row,4)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,4)]"><span  ng-if="category == 'plus'">[[row.result]]</span><span  ng-if="category == 'summultiply'">[[row.result]]</span></span>  
 		<span ng-if="!isVisualColumn(row,4) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,4)]">(<span  ng-if="category == 'summultiply'">[[row.result]]</span><span  ng-if="category == 'summultiply'">[[row.result]]</span>)</span> 
 		<span ng-form="inputform4"><input ng-blur="updateScore()" ng-disabled="!canInputAnswer" ng-if="!isVisualColumn(row,4) && !showAnswer "  class="answerInput" type="text" data-ng-model="row.myanswerdata"></span>
-		<span check-result category="category" my-row="row" has-input="inputform1.$dirty || inputform2.$dirty || inputform3.$dirty" answer='row.myanswerdata' check-answer-realtime="checkAnswerRealtime"></span>
+		<span check-result category="category" my-row="row" has-input="inputform1.$dirty || inputform2.$dirty || inputform3.$dirty || inputform4.$dirty" answer='row.myanswerdata' check-answer-realtime="checkAnswerRealtime"></span>
 </span>
 	</span>
 	</script>

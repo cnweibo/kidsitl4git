@@ -79,6 +79,12 @@ var kidsitAppCtrl = app.controller('kidsitAppCtrl', ['$scope', '$rootScope', '$h
 			}
 			if (rowinfo.rowdata.invisualcolumns == "2"){
 				result = (rowinfo.rowdata.operand2 == rowinfo.rowdata.myanswerdata) ;}
+			if (rowinfo.category == "summultiply"){
+				if (rowinfo.rowdata.invisualcolumns == "3"){
+				result = (rowinfo.rowdata.operand3 == rowinfo.rowdata.myanswerdata) ;}
+				if (rowinfo.rowdata.invisualcolumns == "4"){
+				result = (rowinfo.rowdata.result == rowinfo.rowdata.myanswerdata) ;}
+			} else {
 			if (rowinfo.rowdata.invisualcolumns == "3"){
 				if (rowinfo.category == "plus"){
 					result = (rowinfo.rowdata.sumdata == rowinfo.rowdata.myanswerdata) ;
@@ -86,6 +92,7 @@ var kidsitAppCtrl = app.controller('kidsitAppCtrl', ['$scope', '$rootScope', '$h
 					result = (rowinfo.rowdata.multiplydata == rowinfo.rowdata.myanswerdata) ;
 				}
 			}
+		}
 			if (result){// if the answer is right
 				if (index == -1){//not found yet, we push in and add the score
 					$scope.mathexam.score += $scope.mathexam.scorePerQuestion;
@@ -409,19 +416,36 @@ app.directive("checkResult",function(){
 		scope. hasSubmittedAnsweres = false;
 		scope.checkData = function(row,answer){
 			var result = null;
-			if (row.invisualcolumns == "1"){
-				result = (row.operand1 == answer) ;
-			}
-			if (row.invisualcolumns == "2"){
-				result = (row.operand2 == answer) ;
-			}
-			if (row.invisualcolumns == "3"){
-				if (scope.category=="plus"){
-					result = (row.sumdata == answer) ;
-				}else if (scope.category == "times"){
-					result = (row.multiplydata == answer) ;
+			console.log(row);
+			if (row.operand3){
+				// summultiply
+				if (row.invisualcolumns == "1"){
+					result = (row.operand1 == answer) ;
 				}
-			}
+				if (row.invisualcolumns == "2"){
+					result = (row.operand2 == answer) ;
+				}
+				if (row.invisualcolumns == "3"){
+				result = (row.operand3 == answer) ;
+				}
+				if (row.invisualcolumns == "4"){
+					result = (row.result == answer) ;
+				}
+			}else{
+				if (row.invisualcolumns == "1"){
+					result = (row.operand1 == answer) ;
+				}
+				if (row.invisualcolumns == "2"){
+					result = (row.operand2 == answer) ;
+				}	
+				if (row.invisualcolumns == "3"){
+					if (scope.category=="plus"){
+						result = (row.sumdata == answer) ;
+					}else if (scope.category == "times"){
+						result = (row.multiplydata == answer) ;
+					}
+				}
+		}
 			return result;
 		};
 		scope.isRevisioning = false;
