@@ -93,7 +93,7 @@
 	<span>
 		<span style="display:inline-block;width:30px;font-size:0.6em" class="label label-success">[[id]]</span>
 		
-		<span ng-if="category == 'summultiply'" style="display:inline-block;width:90px;font-size: 0.8em">
+		<span ng-if="category == 'summultiply'" style="display:inline-block;font-size: 0.8em">
 
 			<span ng-if="isVisualColumn(row,1)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,1)]">[[row.operand1]]</span> 
 			<span ng-if="!isVisualColumn(row,1) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,1)]">([[row.operand1]])</span> 
@@ -121,7 +121,7 @@
 			<span check-result category="category" my-row="row" has-input="inputform1.$dirty || inputform2.$dirty || inputform3.$dirty || inputform4.$dirty" answer='row.myanswerdata' check-answer-realtime="checkAnswerRealtime"></span>
 		</span>
 
-		<span ng-if="category != 'summultiply'" style="display:inline-block;width:90px;font-size: 0.8em">
+		<span ng-if="category != 'summultiply'" style="display:inline-block;font-size: 0.8em">
 
 			<span ng-if="isVisualColumn(row,1)" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,1)]">[[row.operand1]]</span> 
 			<span ng-if="!isVisualColumn(row,1) && showAnswer" ng-class="{true: 'examdata', false: 'answerdata'}[isVisualColumn(row,1)]">([[row.operand1]])</span> 
